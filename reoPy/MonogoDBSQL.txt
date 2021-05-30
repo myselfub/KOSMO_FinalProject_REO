@@ -1,0 +1,55 @@
+db.createUser({
+user: "reo",
+pwd: "REO",
+roles: [{role: "userAdmin", db: "reo"}]
+})
+
+db.updateUser("reo", {pwd: "REO"})
+
+db.seq.insert({"_id": "searchTitle", "seq": 0})
+
+function nextSeq(name) {
+    var ret = db.seq.findAndModify({
+        query: { _id: name },
+        update: { $inc: { seq: 1 } },
+        new: true
+        });
+        return ret.seq;
+        }
+
+db.searchTitle.insert({"seq": nextSeq("searchTitle"), "title": "검색", "mem_email": "fd9100@naver.com", "date": new Date(Date.now())})
+
+db.searchTitle.insert("title": "검색", "mem_email": "fd9100@naver.com", "date": new Date(Date.now())})
+
+db.searchTitleCount.insert({"title": "검색", "count": 1})
+
+db.searchTitleCount.insert({"title" : "금천구", "count" : 42})
+db.searchTitleCount.insert({"title" : "구로구", "count" : 17})
+db.searchTitleCount.insert({"title" : "강남", "count" : 82})
+db.searchTitleCount.insert({"title" : "공유오피스", "count" : 52})
+db.searchTitleCount.insert({"title" : "가산", "count" : 28})
+db.searchTitleCount.insert({"title" : "구로", "count" : 81})
+db.searchTitleCount.insert({"title" : "가산역", "count" : 9})
+db.searchTitleCount.insert({"title" : "잠실", "count" : 38})
+db.searchTitleCount.insert({"title" : "마포", "count" : 38})
+db.searchTitleCount.insert({"title" : "관악구", "count" : 31})
+db.searchTitleCount.insert({"title" : "강남구", "count" : 80})
+db.searchTitleCount.insert({"title" : "회의", "count" : 8})
+db.searchTitleCount.insert({"title" : "스터디", "count" : 13})
+db.searchTitleCount.insert({"title" : "공부", "count" : 6})
+db.searchTitleCount.insert({"title" : "강남역", "count" : 44})
+db.searchTitleCount.insert({"title" : "서초", "count" : 67})
+db.searchTitleCount.insert({"title" : "오피스", "count" : 27})
+db.searchTitleCount.insert({"title" : "사무실", "count" : 39})
+db.searchTitleCount.insert({"title" : "룸", "count" : 58})
+db.searchTitleCount.insert({"title" : "역삼동", "count" : 71})
+db.searchTitleCount.insert({"title" : "가산동", "count" : 19})
+db.searchTitleCount.insert({"title" : "성수", "count" : 2})
+db.searchTitleCount.insert({"title" : "영등포", "count" : 4})
+db.searchTitleCount.insert({"title" : "여의도", "count" : 56})
+db.searchTitleCount.insert({"title" : "관악", "count" : 68})
+db.searchTitleCount.insert({"title" : "노원구", "count" : 12})
+db.searchTitleCount.insert({"title" : "양천구", "count" : 11})
+db.searchTitleCount.insert({"title" : "강서구", "count" : 33})
+db.searchTitleCount.insert({"title" : "강동", "count" : 10})
+db.searchTitleCount.insert({"title" : "강북", "count" : 45})
